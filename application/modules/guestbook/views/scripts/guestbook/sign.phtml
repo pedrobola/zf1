@@ -1,0 +1,26 @@
+<?php
+$this->title = "Novo vistante";
+$this->headTitle($this->title);
+?>
+<div class="container">
+	<span>Por favor, preencha o formulário abaixo para se cadastrar</span>
+	<form method="<?php echo $this->form->getMethod() ?>" action="<?php echo $this->form->getAction()?>">
+		<?php $this->form->setAction($this->url()); ?>
+		
+		<?php echo $this->form->email->renderLabel(); ?>
+		<?php echo $this->formText('email', '', array('class' => 'form-control')); ?>
+		<?php echo $this->form->email->renderErrors(); ?>
+		
+		<?php echo $this->form->comment->renderLabel(); ?>
+		<?php echo $this->formTextarea('comment', '', array('class' => 'form-control', 'rows' => '3')); ?>
+		<?php echo $this->form->comment->renderErrors(); ?>
+		
+		<?php echo $this->form->captcha; ?>
+		
+		<?php echo $this->form->submit; ?>
+		
+		<?php echo $this->form->csrf; ?>
+	</form>
+</div>
+
+

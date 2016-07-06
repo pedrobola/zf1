@@ -1,0 +1,22 @@
+<?php
+$this->title = "Livro de visitas";
+$this->headTitle($this->title);
+?>
+<div class="container">
+	<p><a href="<?php echo $this->url(
+	    array(
+	    	'module' => 'guestbook',
+	        'controller' => 'guestbook',
+	        'action'     => 'sign'
+	    ),
+	    'default',
+	    true) ?>">Cadastre-se</a></p>
+	
+	Cadastrados: <br />
+	<dl>
+	    <?php foreach ($this->entries as $entry): ?>
+	    <dt><?php echo $this->escape($entry->email) ?></dt>
+	    <dd><?php echo $this->escape($entry->comment) ?></dd>
+	    <?php endforeach ?>
+	</dl>
+</div>
